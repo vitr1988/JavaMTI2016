@@ -46,13 +46,40 @@ public class HelloWorld {
 		boolean expression = flag && (5 > 3) && (100/2 - 15 > 0) && (11 - 2 < 7);
 		
 		int varible = 15;
-		varible += ind + 5; // 1024
+		varible += ind + 5;; // 1024
 //		varible = varible + ind + 5; //1044
 		byte bit = 100;
-		bit += 29;
-		
+		bit = (byte) (bit % 29); // (byte) (bit + 29)
+		bit = (byte) (bit + 29);
+		System.out.println(bit);
 		
 		System.out.println(varible);
+		
+		char symbol = 100 == 125 ? 'A' : 'Я';
+		int in = varible > 0 ? varible : -varible; // |varible|
+		
+//		d = d + 1;
+		
+		System.out.println(++d);
+		System.out.println(d);
+		
+		System.out.println((((2 + 2) * 2)));
+		
+		test();
 	}
-
+	
+	public static void test(){
+		int a = 125;
+		int b = 0;
+		{
+			int c = 125 + 2 * 512;
+			c += a;
+			b = c;
+		}
+		System.out.println(b);
+	}
+	
+	{
+		
+	}
 }
