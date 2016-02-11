@@ -80,6 +80,89 @@ public class HelloWorld {
 	}
 	
 	{
+	}
+	
+	public static void conditionTest(boolean testFlag){
+		boolean flag = 5 < 3;
+		int index = 0;
+		if (flag) 
+			System.out.println("5 > 3");		
+		if (index == 0 || (5 / index == 10))
+			System.out.println("Иначе!");		
+		else 
+			System.out.println("Совсем в крайнем случае!");
 		
+	}
+	
+	public static void whileDoTest(boolean flag){
+		int i = 0;
+		while (flag) {
+			System.out.println("Test!!");	
+			if (i < 100){
+				i++;
+			}
+			else break;
+		}
+	}
+	
+	public static void doWhileTest(boolean flag){
+		int i = 0;
+		do {
+			System.out.println("Test!!");	
+			if (i < 100){
+				i++;
+			}
+			else break;
+		} while(flag);
+	}
+	
+	public static void forTest(){
+		for (int i = 0, j = 1; i < 25; i++, j++){
+			if (i % 2 != 0) continue;
+			System.out.println("Current index : " + (i + 1));
+		}
+		for (;;){
+			
+		}
+	}
+	
+	public static void forEachTest(String[] args){
+		for (String arg : args){
+			System.out.println("Current value : " + arg);
+		}
+	}
+	
+	public static void switchTest(String str){
+		String bufferString = "";
+		switch(str){
+			case "red" :  bufferString = "Stop!"; break;
+			case "yellow" : {
+				bufferString = "Warning!";  break;
+			}
+			case "green" : bufferString = "Let's go!"; break;
+			default : bufferString = "No such color!"; break;
+		}
+		System.out.println(bufferString);
+	}
+	
+	public void initArray(){
+		boolean[] booleanArray;
+		booleanArray = new boolean[2];
+		booleanArray[0] = true;
+		booleanArray[1] = false;
+		
+		for (int i = 0; i < booleanArray.length; i++){
+			if (!booleanArray[i]){
+				System.out.println("Mistake!");
+			}
+		}
+		int[] intArray = new int[25];
+		for (int i = 0; i < intArray.length; i++){
+			intArray[i] = i * 1000;
+		}
+		
+		int array[] = new int[]{1, 2, 3, 4, 5};
+		
+		int index, massive[];
 	}
 }
