@@ -1,5 +1,6 @@
+package ru.mti.edu.car;
 
-public abstract class Automobile {
+public abstract class Automobile implements Moveable, Printable {
 
 	private int speed;
 	private int kilometrage;
@@ -9,6 +10,9 @@ public abstract class Automobile {
 		return speed;
 	}
 	public void setSpeed(int newSpeed){
+		if (newSpeed > MAX_SPEED){
+			System.out.println("Вы - нарушитель закона!");
+		}
 		if (speed < 0 || getSpeed() == newSpeed) return;
 		this.speed = newSpeed;
 	}
@@ -32,7 +36,7 @@ public abstract class Automobile {
 		this.brand = brand;
 	}
 	
-	abstract void move();
+//	public abstract void move();
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -44,5 +48,9 @@ public abstract class Automobile {
 				&& this.getColor().equals(a.getColor())
 					&& this.getSpeed() == a.getSpeed()
 						&& this.getKilometrage() == a.getKilometrage());
+	}
+	
+	public void print(){
+		
 	}
 }

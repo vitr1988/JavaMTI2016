@@ -1,7 +1,10 @@
+package ru.mti.edu.car;
 
 public class AutomobileTest {
 
 	public static void main(String[] args) {
+		Moveable moveable = new Cargo();
+		moveable.move();
 		Automobile car = new Cargo();
 //		car.speed = 120;
 		car.setBrand("Kia");
@@ -40,6 +43,8 @@ public class AutomobileTest {
 		
 		System.out.println(new Car().equals(new Car()));
 		System.out.println(new Car() == new Car());
+		
+//		System.out.println(Person.count);
 	}
 
 }

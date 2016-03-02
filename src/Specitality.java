@@ -39,4 +39,25 @@ public class Specitality {
 //		System.out.println("first action!");
 	}
 
+	class A {
+		int f(){
+			return -1;
+		}
+	}
+	
+	class B extends A {
+		int f (){
+			return 0;
+		}
+	}
+	
+	class C extends A {
+		int f (){
+			return 1;
+		}
+	}
+	
+//	class D extends B, C {
+//		
+//	}
 }

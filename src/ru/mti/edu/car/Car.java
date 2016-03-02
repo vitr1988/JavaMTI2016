@@ -1,3 +1,4 @@
+package ru.mti.edu.car;
 
 public class Car extends Automobile {
 	int passengerCount;
@@ -14,7 +15,12 @@ public class Car extends Automobile {
 		Car result = new Car();
 		result.setBrand(source.getBrand());
 		result.setKilometrage(source.getKilometrage());
-		result.setColor(new Color(source.getColor()));
+		Color color = new Color(source.getColor());
+		result.setColor(color);
+		if (color.getColor().goAvailalble()){
+			//
+		}
+		color.getColor().name()
 		result.setSpeed(source.getSpeed());
 		return result;
 	}

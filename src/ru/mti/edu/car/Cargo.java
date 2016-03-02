@@ -1,3 +1,4 @@
+package ru.mti.edu.car;
 
 public class Cargo extends Automobile {
 	double weight;

@@ -1,3 +1,4 @@
+package ru.mti.edu.car;
 
 public final class FlyCar extends Automobile {
 
