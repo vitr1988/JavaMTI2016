@@ -51,6 +51,19 @@ public abstract class Automobile implements Moveable, Printable {
 	}
 	
 	public void print(){
-		
+		class Printer {
+			public void printInConsole(){
+			}
+			
+			public void printInFile(){
+			}
+		}
+		Printer print = new Printer();
+		if (true){
+			print.printInConsole();
+		}
+		else {
+			print.printInFile();
+		}
 	}
 }
