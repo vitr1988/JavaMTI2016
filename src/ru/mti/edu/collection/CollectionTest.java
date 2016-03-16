@@ -5,16 +5,24 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.swing.JSpinner.ListEditor;
+
 public class CollectionTest {
 
 	public static void main(String[] args) {
+		long initTime = System.currentTimeMillis();
 //		GenericExample<Integer, String> example = new GenericExample<>();
 //		example.setName("Ivanov Ivan");
 //		example.setOrder(1);
@@ -63,8 +71,8 @@ public class CollectionTest {
 		
 		System.out.println(strList);
 		
-		Set<Integer> set = new HashSet<>();
-		for (int i = 100; i <= 200; i++){
+		Set<Integer> set = new LinkedHashSet<>();
+		for (int i = 200; i >= 100; i--){
 			set.add(i);
 		}
 		set.add(105);
@@ -73,12 +81,15 @@ public class CollectionTest {
 		
 		System.out.println(set);
 		
-		Set<Integer> treeSet = new TreeSet<>(new Comparator<Integer>(){
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return -o1.compareTo(o2);
-			}
-		});
+//		Set<Integer> treeSet = new TreeSet<>(new Comparator<Integer>(){
+//			@Override
+//			public int compare(Integer o1, Integer o2) {
+//				return -o1.compareTo(o2);
+//			}
+//		});
+		Set<Integer> treeSet = new TreeSet<Integer>(
+			(o1, o2) -> -o1.compareTo(o2)
+		);
 		
 		treeSet.add(12);
 		treeSet.add(15);
@@ -89,17 +100,41 @@ public class CollectionTest {
 		
 		System.out.println(treeSet);
 		
-//		Queue<Double> queue
+		Queue<Double> queue = new PriorityQueue<>();
+//		queue.
 		
-		Map<Integer, String> employeeInfo = new HashMap<>(5);
-		employeeInfo.put(10, "Ivanov");
-		employeeInfo.put(11, "Petrov");
-		employeeInfo.put(12, "Sidorov");
-		employeeInfo.put(13, "Starovoitov");
-		employeeInfo.put(14, "Zhuravlev");
+		Map<TabNumber, String> employeeInfo = new LinkedHashMap<>(5);
+		employeeInfo.put(new TabNumber(10000, 10), "Ivanov");
+		employeeInfo.put(new TabNumber(10004, 14), "Zhuravlev");
+		employeeInfo.put(new TabNumber(10001, 11), "Petrov");
+		employeeInfo.put(new TabNumber(10002, 12), "Sidorov");
+		employeeInfo.put(new TabNumber(10003, 13), "Starovoitov");
 		
-		String lastName = employeeInfo.get(10);
+		for (Entry<TabNumber, String> entry : employeeInfo.entrySet()){
+			System.out.println(entry.getKey() + "-" + entry.getValue());
+		}
+		
+		String lastName = employeeInfo.get(new TabNumber(10000, 10));
 		System.out.println(lastName);
+		
+		
+		Iterator<Integer> iterator = treeSet.iterator();
+		for (; iterator.hasNext();){
+			Integer element = iterator.next();
+			System.out.println(element);
+		}
+		
+		for (ListIterator<String> listIteror =  strList.listIterator(); listIteror.hasNext(); ){
+			String el = listIteror.next();
+			if ("Petrov".equalsIgnoreCase(el)){
+				String previousEl = listIteror.previous();
+				System.out.println(previousEl);
+				el = listIteror.next();
+			}
+		}
+		long finishTime = System.currentTimeMillis();
+		
+		System.out.println("Duration execution : " + (finishTime - initTime));
 	}
 }
 

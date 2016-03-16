@@ -20,7 +20,6 @@ public class Car extends Automobile {
 		if (color.getColor().goAvailalble()){
 			//
 		}
-		color.getColor().name()
 		result.setSpeed(source.getSpeed());
 		return result;
 	}
