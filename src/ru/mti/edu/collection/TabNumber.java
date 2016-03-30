@@ -1,13 +1,17 @@
 package ru.mti.edu.collection;
 
+import ru.mti.edu.reflection.ReflectionTest;
+
 public class TabNumber {
 
 	private Integer value;
 	private int departmentEmployeeId;
 	
+	@SuppressWarnings({ "deprecation", "static-access" })
 	public TabNumber(Integer value, Integer depa) {
 		this.value = value;
 		this.departmentEmployeeId = depa;
+		new ReflectionTest().main(new String[]{});
 	}
 	
 	@Override

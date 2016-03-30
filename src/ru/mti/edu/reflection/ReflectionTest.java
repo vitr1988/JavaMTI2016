@@ -3,11 +3,15 @@ package ru.mti.edu.reflection;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 //import ru.mti.edu.collection.TabNumber;
 
+@Deprecated
 public class ReflectionTest {
-
+	
+	
+	@Deprecated
 	public static void main(String[] args) {
 //		TabNumber tabNumber = new TabNumber(10, 10);
 //		Class tabNumberClass = TabNumber.class;
@@ -34,6 +38,22 @@ public class ReflectionTest {
 			System.out.println(obj2);
 			System.out.println(valueField.get(obj));
 			System.out.println(valueField.get(obj2));
+			
+			System.out.println("-----------------");
+			for (Method method : tabNumberClass3.getDeclaredMethods()){
+//				System.out.println(method.getName() + "-" + method.getModifiers() + "-" + method.getParameters());
+				if ("equals".equalsIgnoreCase(method.getName())){
+					System.out.println(method.invoke(obj, obj2));
+				}
+				else {
+					System.out.println(method.invoke(obj));
+				}
+			}
+			
+			System.out.println(tabNumberClass3.getSuperclass());
+			
+			ClassLoader cl = tabNumberClass3.getClassLoader();
+			
 //			Class tabNumberClass4 = ClassLoader.getSystemClassLoader().loadClass("ru.mti.edu.collection.TabNumber");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
