@@ -1,7 +1,7 @@
 package ru.mti.edu.car;
 
 public class Car extends Automobile {
-	int passengerCount;
+	public transient int passengerCount = 400;
 	
 	void goToDacha(){
 		System.out.println("Мы приехали на дачу!");

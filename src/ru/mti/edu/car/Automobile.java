@@ -1,7 +1,10 @@
 package ru.mti.edu.car;
 
-public abstract class Automobile implements Moveable, Printable {
+import java.io.Serializable;
 
+public abstract class Automobile implements Moveable, Printable, Serializable {
+	private static final long serialVersionUID = -3154435596618019582L;
+	
 	private int speed;
 	private int kilometrage;
 	private String color = "red", brand = "lada";
